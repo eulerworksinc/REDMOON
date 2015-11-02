@@ -6,7 +6,7 @@
         xmlns:k="http://schemas.microsoft.com/kinect/2013"
         xmlns:local="clr-namespace:Kinect_PP_WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525" Opacity="0.25" AllowsTransparency="True" WindowStyle="None">
+        Title="MainWindow" Height="350" Width="525" AllowsTransparency="True" WindowStyle="None">
     <Window.Background>
         <SolidColorBrush Opacity="0.25" Color="White"/>
     </Window.Background>
@@ -14,11 +14,12 @@
         <k:KinectSensorChooserUI HorizontalAlignment="Center" VerticalAlignment="Top" Name="sensorChooserUi" />
 
         <k:KinectUserViewer VerticalAlignment="Top" HorizontalAlignment="Center" 
-k:KinectRegion.KinectRegion="{Binding ElementName=kinectRegion}" Height="100" />
-        <k:KinectRegion Name="kinectRegion" Margin="0,-4,-0.333,3.667">
+k:KinectRegion.KinectRegion="{Binding ElementName=kinectRegion}" Height="200" />
+        <k:KinectRegion Name="kinectRegion">
             <Grid>
-                <k:KinectTileButton Label="Previous Slide" Click="PreviousButtonOnClick" HorizontalAlignment="left" />
-                <k:KinectTileButton Label="Next Slide" Click="NextButtonOnClick" HorizontalAlignment="right" />
+                <k:KinectTileButton Click="PreviousButtonOnClick" HorizontalAlignment="left" Height="Auto" Opacity="0.25"/>
+                <k:KinectTileButton Click="NextButtonOnClick" HorizontalAlignment="right" Height="Auto" Opacity="0.25"/>
+                <k:KinectTileButton Click="CloseButtonOnClick" VerticalAlignment="Bottom" HorizontalAlignment="Center" Opacity="0.1"/>
             </Grid>
         </k:KinectRegion>
     </Grid>

@@ -35,11 +35,27 @@ namespace Kinect_PP_WPF
             try
             {
 
-                ppApp = new Microsoft.Office.Interop.PowerPoint.Application();
-                ppApp.DisplayAlerts = PpAlertLevel.ppAlertsNone;
-                ppPresentation = ppApp.Presentations.Open("C:\\Users\\Hirangren\\Documents\\test.pptx");
-                ppPresentation.SlideShowSettings.Run();
-                ppSlideShow = ppPresentation.SlideShowWindow.View;
+                var FD = new System.Windows.Forms.OpenFileDialog();
+                FD.Filter = "PowerPoint Presentations|*.pptx;*.ppt";
+                FD.FilterIndex = 1;
+                if (FD.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    string ppFile = FD.FileName;
+                    ppApp = new Microsoft.Office.Interop.PowerPoint.Application();
+                    ppApp.DisplayAlerts = PpAlertLevel.ppAlertsNone;
+                    ppPresentation = ppApp.Presentations.Open(ppFile);
+                    ppPresentation.SlideShowSettings.Run();
+                    ppSlideShow = ppPresentation.SlideShowWindow.View;
+
+                }
+                else
+                {
+                    this.Close();
+                }
+
+
+                this.WindowState = WindowState.Maximized;
+                Topmost = true;
             }
             catch
             { }
@@ -114,6 +130,13 @@ namespace Kinect_PP_WPF
         private void PreviousButtonOnClick(object sender, RoutedEventArgs args)
         {
             ppSlideShow.Previous();
+        }
+
+        private void CloseButtonOnClick(object sender, RoutedEventArgs args)
+        {
+            ppApp.Quit();
+            this.Close();
+
         }
     }
 }
