@@ -36,6 +36,8 @@ namespace Kinect_PP_WPF
             {
 
                 var FD = new System.Windows.Forms.OpenFileDialog();
+                FD.Filter = "PowerPoint Presentations|*.pptx;*.ppt";
+                FD.FilterIndex = 1;
                 if (FD.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     string ppFile = FD.FileName;
