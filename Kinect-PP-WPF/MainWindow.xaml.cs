@@ -47,10 +47,10 @@ namespace Kinect_PP_WPF
 
         private void OnLoaded(object sender, RoutedEventArgs routedEventArgs)
         {
-            this.sensorChooser = new KinectSensorChooser();
-            this.sensorChooser.KinectChanged += SensorChooserOnKinectChanged;
-            this.sensorChooserUi.KinectSensorChooser = this.sensorChooser;
-            this.sensorChooser.Start();
+            sensorChooser = new KinectSensorChooser();
+            sensorChooser.KinectChanged += SensorChooserOnKinectChanged;
+            sensorChooserUi.KinectSensorChooser = sensorChooser;
+            sensorChooser.Start();
         }
 
         private void SensorChooserOnKinectChanged(object sender, KinectChangedEventArgs args)
