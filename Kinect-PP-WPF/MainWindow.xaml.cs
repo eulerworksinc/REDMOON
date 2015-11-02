@@ -54,7 +54,7 @@ namespace Kinect_PP_WPF
                 }
 
 
-                this.WindowState = WindowState.Maximized;
+                WindowState = WindowState.Maximized;
                 Topmost = true;
             }
             catch
