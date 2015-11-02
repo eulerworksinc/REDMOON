@@ -24,6 +24,9 @@ namespace Kinect_PP_WPF
     public partial class MainWindow : Window
     {
         private KinectSensorChooser sensorChooser;
+        private Microsoft.Office.Interop.PowerPoint.Application ppApp;
+        private Presentation ppPresentation;
+        private SlideShowView ppSlideShow;
 
         public MainWindow()
         {
@@ -32,9 +35,11 @@ namespace Kinect_PP_WPF
             try
             {
 
-                var ppApp = new Microsoft.Office.Interop.PowerPoint.Application();
+                ppApp = new Microsoft.Office.Interop.PowerPoint.Application();
                 ppApp.DisplayAlerts = PpAlertLevel.ppAlertsNone;
-                Microsoft.Office.Interop.PowerPoint.Presentation ppPresentation = ppApp.Presentations.Open("C:\\Users\\Hirangren\\Documents\\test.pptx");
+                ppPresentation = ppApp.Presentations.Open("C:\\Users\\Hirangren\\Documents\\test.pptx");
+                ppPresentation.SlideShowSettings.Run();
+                ppSlideShow = ppPresentation.SlideShowWindow.View;
             }
             catch
             { }
@@ -97,6 +102,18 @@ namespace Kinect_PP_WPF
             }
             if (!error)
                 kinectRegion.KinectSensor = args.NewSensor;
+
+            
+        }
+
+        private void NextButtonOnClick(object sender, RoutedEventArgs args)
+        {
+            ppSlideShow.Next();
+        }
+
+        private void PreviousButtonOnClick(object sender, RoutedEventArgs args)
+        {
+            ppSlideShow.Previous();
         }
     }
 }

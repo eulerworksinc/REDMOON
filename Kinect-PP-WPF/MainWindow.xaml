@@ -9,9 +9,14 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <k:KinectSensorChooserUI HorizontalAlignment="Center" VerticalAlignment="Top" Name="sensorChooserUi" />
-        <k:KinectRegion Name="kinectRegion">
-        </k:KinectRegion>
+
         <k:KinectUserViewer VerticalAlignment="Top" HorizontalAlignment="Center" 
 k:KinectRegion.KinectRegion="{Binding ElementName=kinectRegion}" Height="100" />
+        <k:KinectRegion Name="kinectRegion" Margin="0,-4,-0.333,3.667">
+            <Grid>
+                <k:KinectTileButton Label="Previous Slide" Click="PreviousButtonOnClick" HorizontalAlignment="left" />
+                <k:KinectTileButton Label="Next Slide" Click="NextButtonOnClick" HorizontalAlignment="right" />
+            </Grid>
+        </k:KinectRegion>
     </Grid>
 </Window>
