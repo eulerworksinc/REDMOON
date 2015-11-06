@@ -17,9 +17,9 @@
 k:KinectRegion.KinectRegion="{Binding ElementName=kinectRegion}" Height="200" />
         <k:KinectRegion Name="kinectRegion">
             <Grid>
-                <k:KinectTileButton Click="PreviousButtonOnClick" HorizontalAlignment="left" Height="Auto" Opacity="0.25"/>
-                <k:KinectTileButton Click="NextButtonOnClick" HorizontalAlignment="right" Height="Auto" Opacity="0.25"/>
-                <k:KinectTileButton Click="CloseButtonOnClick" VerticalAlignment="Bottom" HorizontalAlignment="Center" Opacity="0.1"/>
+                <k:KinectTileButton Click="PreviousButtonOnClick" HorizontalAlignment="left" Height="Auto" Opacity="0.0"/>
+                <k:KinectTileButton Click="NextButtonOnClick" HorizontalAlignment="right" Height="Auto" Opacity="0.0"/>
+                <k:KinectTileButton Click="CloseButtonOnClick" VerticalAlignment="Bottom" HorizontalAlignment="Center" Opacity="0.0"/>
             </Grid>
         </k:KinectRegion>
     </Grid>

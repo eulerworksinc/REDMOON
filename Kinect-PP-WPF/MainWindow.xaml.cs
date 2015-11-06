@@ -135,7 +135,7 @@ namespace Kinect_PP_WPF
         private void CloseButtonOnClick(object sender, RoutedEventArgs args)
         {
             ppApp.Quit();
-            this.Close();
+            Close();
 
         }
     }
