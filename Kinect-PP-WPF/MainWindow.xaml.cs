@@ -24,41 +24,42 @@ namespace Kinect_PP_WPF
     public partial class MainWindow : Window
     {
         private KinectSensorChooser sensorChooser;
-        private Microsoft.Office.Interop.PowerPoint.Application ppApp;
-        private Presentation ppPresentation;
-        private SlideShowView ppSlideShow;
+        private Copernicus_sm sm;
+        private Button_list button_list;
+       
 
         public MainWindow()
         {
             InitializeComponent();
             Loaded += OnLoaded;
-            try
+
+            button_list = new Button_list();
+
+            button_list.close_button = CloseButton;
+            button_list.next_slide_button = NextButton;
+            button_list.prev_slide_button = PrevButton;
+            button_list.left_button = LeftButton;
+            button_list.right_button = RightButton;
+
+            var file_diag = new System.Windows.Forms.OpenFileDialog();
+            file_diag.Filter = "XML File|*.xml";
+            file_diag.FilterIndex = 1;
+            
+            if (file_diag.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-
-                var FD = new System.Windows.Forms.OpenFileDialog();
-                FD.Filter = "PowerPoint Presentations|*.pptx;*.ppt";
-                FD.FilterIndex = 1;
-                if (FD.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                {
-                    string ppFile = FD.FileName;
-                    ppApp = new Microsoft.Office.Interop.PowerPoint.Application();
-                    ppApp.DisplayAlerts = PpAlertLevel.ppAlertsNone;
-                    ppPresentation = ppApp.Presentations.Open(ppFile);
-                    ppPresentation.SlideShowSettings.Run();
-                    ppSlideShow = ppPresentation.SlideShowWindow.View;
-
-                }
-                else
-                {
-                    this.Close();
-                }
-
-
-                WindowState = WindowState.Maximized;
-                Topmost = true;
+                sm = new Copernicus_sm(file_diag.FileName, button_list);
+                sm.start_pp();
             }
-            catch
-            { }
+            else
+            {
+                Close();
+               /// throw new ArgumentException("Could not open presentation", "file");
+            }
+
+            WindowState = WindowState.Maximized;
+            Topmost = true;
+
+            
         }
 
         private void OnLoaded(object sender, RoutedEventArgs routedEventArgs)
@@ -124,18 +125,28 @@ namespace Kinect_PP_WPF
 
         private void NextButtonOnClick(object sender, RoutedEventArgs args)
         {
-            ppSlideShow.Next();
+            sm.next_slide();
         }
 
         private void PreviousButtonOnClick(object sender, RoutedEventArgs args)
         {
-            ppSlideShow.Previous();
+            sm.prev_slide();
         }
 
         private void CloseButtonOnClick(object sender, RoutedEventArgs args)
         {
-            ppApp.Quit();
+            sm.quit();
             Close();
+
+        }
+
+        private void RightButtonOnClick(object sender, RoutedEventArgs args)
+        {
+
+        }
+
+        private void LeftButtonOnClick(object sender, RoutedEventArgs args)
+        {
 
         }
     }

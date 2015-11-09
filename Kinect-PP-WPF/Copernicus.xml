@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Presentation filename="copernicus.pptx">
+  <Slide id="1">
+    <Button id="next"/>
+    <Button id="close" />
+  </Slide>
+  <Slide id="2">
+    <Button id="previous"/>
+    <Button id="close"/>
+  </Slide>
+</Presentation>
