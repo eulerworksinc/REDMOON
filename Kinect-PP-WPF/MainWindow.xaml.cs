@@ -34,6 +34,7 @@ namespace Kinect_PP_WPF
         {
             InitializeComponent();
             Loaded += OnLoaded;
+            SkeletonFrameReady += OnSkeletonFrameReady;
 
             /// Create button list
             button_list = new Button_list();
@@ -136,7 +137,27 @@ namespace Kinect_PP_WPF
 
             
         }
-        
+
+        /// <summary>
+        /// Event for when a skeleton frame is ready
+        /// </summary>
+        public event EventHandler<SkeletonFrameReadyEventArgs> SkeletonFrameReady
+        {
+            add { sensor.SkeletonFrameReady += value; }
+            remove { sensor.SkeletonFrameReady -= value; }
+        }
+
+        /// <summary>
+        /// Handler for SkeletonFrameReady
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OnSkeletonFrameReady(object sender, RoutedEventArgs args)
+        {
+            
+        }
+
+
         /// <summary>
         /// Next page button event handler
         /// </summary>
