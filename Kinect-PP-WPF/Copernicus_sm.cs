@@ -12,6 +12,9 @@ using Microsoft.Kinect.Toolkit;
 
 namespace Kinect_PP_WPF
 {
+    /// <summary>
+    /// State machine class for Copernicus
+    /// </summary>
     class Copernicus_sm
     {
         private int current_slide;
@@ -23,6 +26,11 @@ namespace Kinect_PP_WPF
         private string pp_filename;
         private Button_list button_list;
 
+        /// <summary>
+        /// Constructor for Copernicus_sm
+        /// </summary>
+        /// <param name="xml_filename"></param>
+        /// <param name="button_list"></param>
         public Copernicus_sm(string xml_filename, Button_list button_list)
         {
             try
@@ -75,6 +83,9 @@ namespace Kinect_PP_WPF
 
         }
 
+        /// <summary>
+        /// Start powerpoint slideshow
+        /// </summary>
         public void start_pp()
         {
             pp_app = new Application();
@@ -86,21 +97,34 @@ namespace Kinect_PP_WPF
             goto_slide(current_slide);
         }
 
+        /// <summary>
+        /// Quit powerpoint application
+        /// </summary>
         public void quit()
         {
             pp_app.Quit();
         }
 
+        /// <summary>
+        /// Goto next slide
+        /// </summary>
         public void next_slide()
         {
             goto_slide(current_slide + 1);
         }
 
+        /// <summary>
+        /// Goto previous slide
+        /// </summary>
         public void prev_slide()
         {
             goto_slide(current_slide - 1);
         }
 
+        /// <summary>
+        /// Goto slide by index
+        /// </summary>
+        /// <param name="index"></param>
         private void goto_slide(int index)
         {
             if (index > num_slides || index < 1)
@@ -123,6 +147,9 @@ namespace Kinect_PP_WPF
 
     }
 
+    /// <summary>
+    /// Tracks which buttons are enabled in the main window by slide
+    /// </summary>
     class Copernicus_slide
     {
         public bool next_slide_button { get; set; } = false;
@@ -133,6 +160,9 @@ namespace Kinect_PP_WPF
         public string id { get; set; } = "";
     }
 
+    /// <summary>
+    /// List of main window buttons
+    /// </summary>
     class Button_list
     {
         public Microsoft.Kinect.Toolkit.Controls.KinectTileButton next_slide_button { get; set; }

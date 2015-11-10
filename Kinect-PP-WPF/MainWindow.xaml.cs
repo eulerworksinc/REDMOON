@@ -27,20 +27,23 @@ namespace Kinect_PP_WPF
         private Copernicus_sm sm;
         private Button_list button_list;
        
-
+        /// <summary>
+        /// Constructor for MainWindow() 
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
             Loaded += OnLoaded;
 
+            /// Create button list
             button_list = new Button_list();
-
             button_list.close_button = CloseButton;
             button_list.next_slide_button = NextButton;
             button_list.prev_slide_button = PrevButton;
             button_list.left_button = LeftButton;
             button_list.right_button = RightButton;
 
+            /// Open xml data
             var file_diag = new System.Windows.Forms.OpenFileDialog();
             file_diag.Filter = "XML File|*.xml";
             file_diag.FilterIndex = 1;
@@ -53,15 +56,21 @@ namespace Kinect_PP_WPF
             else
             {
                 Close();
-               /// throw new ArgumentException("Could not open presentation", "file");
             }
 
+            /// Maximize kinect window and make it the topmost window
             WindowState = WindowState.Maximized;
             Topmost = true;
 
             
         }
 
+        /// <summary>
+        /// Event handler for Loaded
+        /// Initializes and starts the sensor chooser
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="routedEventArgs"></param>
         private void OnLoaded(object sender, RoutedEventArgs routedEventArgs)
         {
             sensorChooser = new KinectSensorChooser();
@@ -70,6 +79,11 @@ namespace Kinect_PP_WPF
             sensorChooser.Start();
         }
 
+        /// <summary>
+        /// Event handler for changes to connected Kinects
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void SensorChooserOnKinectChanged(object sender, KinectChangedEventArgs args)
         {
             bool error = false;
@@ -122,17 +136,32 @@ namespace Kinect_PP_WPF
 
             
         }
-
+        
+        /// <summary>
+        /// Next page button event handler
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void NextButtonOnClick(object sender, RoutedEventArgs args)
         {
             sm.next_slide();
         }
 
+        /// <summary>
+        /// Previous page button event handler
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void PreviousButtonOnClick(object sender, RoutedEventArgs args)
         {
             sm.prev_slide();
         }
 
+        /// <summary>
+        /// Close button event handler
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void CloseButtonOnClick(object sender, RoutedEventArgs args)
         {
             sm.quit();
@@ -140,11 +169,21 @@ namespace Kinect_PP_WPF
 
         }
 
+        /// <summary>
+        /// Right button event handler
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void RightButtonOnClick(object sender, RoutedEventArgs args)
         {
 
         }
 
+        /// <summary>
+        /// Left button event handler
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void LeftButtonOnClick(object sender, RoutedEventArgs args)
         {
 
