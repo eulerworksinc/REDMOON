@@ -190,7 +190,7 @@ namespace Kinect_PP_WPF
         /// <param name="args"></param>
         private void RightButtonOnClick(object sender, RoutedEventArgs args)
         {
-
+            sm.advance(5);
         }
 
         /// <summary>
@@ -200,7 +200,7 @@ namespace Kinect_PP_WPF
         /// <param name="args"></param>
         private void LeftButtonOnClick(object sender, RoutedEventArgs args)
         {
-
+            sm.advance(-5);
         }
     }
 }

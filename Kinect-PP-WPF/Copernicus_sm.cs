@@ -91,6 +91,7 @@ namespace Kinect_PP_WPF
             pp_app = new Application();
             pp_app.DisplayAlerts = PpAlertLevel.ppAlertsNone;
             pp_presentation = pp_app.Presentations.Open(pp_filename);
+            pp_presentation.SlideShowSettings.ShowPresenterView = Microsoft.Office.Core.MsoTriState.msoFalse;
             pp_presentation.SlideShowSettings.Run();
             pp_slideshow = pp_presentation.SlideShowWindow.View;
             current_slide = 1;
@@ -119,6 +120,11 @@ namespace Kinect_PP_WPF
         public void prev_slide()
         {
             goto_slide(current_slide - 1);
+        }
+
+        public void advance(int i)
+        {
+            goto_slide(current_slide + i);
         }
 
         /// <summary>

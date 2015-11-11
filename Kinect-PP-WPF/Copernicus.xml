@@ -5,7 +5,95 @@
     <Button id="close" />
   </Slide>
   <Slide id="2">
-    <Button id="previous"/>
     <Button id="close"/>
+    <Button id="right"/>
+    <Button id="previous"/>
+    <Button id="next"/>
+  </Slide>
+  <Slide id="3">
+    <Button id="close"/>
+    <Button id="previous"/>
+    <Button id="next"/>
+  </Slide>
+  <Slide id="4">
+    <Button id="close"/>
+    <Button id="previous"/>
+    <Button id="next"/>
+  </Slide>
+  <Slide id="5">
+    <Button id="close"/>
+    <Button id="previous"/>
+    <Button id="next"/>
+  </Slide>
+  <Slide id="6">
+    <Button id="close"/>
+    <Button id="previous"/>
+  </Slide>
+  <Slide id="7">
+    <Button id="close"/>
+    <Button id="right"/>
+    <Button id="left"/>
+  </Slide>
+  <Slide id="8">
+    <Button id="close"/>
+  </Slide>
+  <Slide id="9">
+    <Button id="close"/>
+  </Slide>
+  <Slide id="10">
+    <Button id="close"/>
+  </Slide>
+  <Slide id="11">
+    <Button id="close"/>
+  </Slide>
+  <Slide id="12">
+    <Button id="close"/>
+    <Button id="right"/>
+    <Button id="left"/>
+  </Slide>
+  <Slide id="13">
+    <Button id="close"/>
+  </Slide>
+  <Slide id="14">
+    <Button id="close"/>
+  </Slide>
+  <Slide id="15">
+    <Button id="close"/>
+  </Slide>
+  <Slide id="16">
+    <Button id="close"/>
+  </Slide>
+  <Slide id="17">
+    <Button id="close"/>
+    <Button id="right"/>
+    <Button id="left"/>
+  </Slide>
+  <Slide id="18">
+    <Button id="close"/>
+  </Slide>
+  <Slide id="19">
+    <Button id="close"/>
+  </Slide>
+  <Slide id="20">
+    <Button id="close"/>
+  </Slide>
+  <Slide id="21">
+    <Button id="close"/>
+  </Slide>
+  <Slide id="22">
+    <Button id="close"/>
+  </Slide>
+  <Slide id="23">
+    <Button id="close"/>
+  </Slide>
+  <Slide id="24">
+    <Button id="close"/>
+  </Slide>
+  <Slide id="25">
+    <Button id="close"/>
+  </Slide>
+  <Slide id="26">
+    <Button id="close"/>
+    <Button id="left"/>
   </Slide>
 </Presentation>
