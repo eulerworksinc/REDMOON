@@ -72,17 +72,9 @@ namespace Copernicus
     class KinectSlide
     {
         /// <summary>
-        /// Constructor for KinectSlide
-        /// </summary>
-        public KinectSlide()
-        {
-            Buttons = new List<string>();
-        }
-
-        /// <summary>
         /// List of button names in the slide
         /// </summary>
-        public List<string> Buttons { get; set; }
+        public List<string> Buttons { get; set; } = new List<string>();
 
         /// <summary>
         /// Slide name

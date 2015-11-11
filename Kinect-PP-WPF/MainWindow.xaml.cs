@@ -184,7 +184,15 @@ namespace Copernicus
         /// <param name="args"></param>
         private void RightButtonOnClick(object sender, RoutedEventArgs args)
         {
-            ppControl.GotoSlide(ppControl.CurrentSlide + 5);
+            try
+            {
+                ppControl.GotoSlide(ppControl.CurrentSlide + 5);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                /// do nothing
+            }
+
         }
 
         /// <summary>
@@ -194,7 +202,14 @@ namespace Copernicus
         /// <param name="args"></param>
         private void LeftButtonOnClick(object sender, RoutedEventArgs args)
         {
-            ppControl.GotoSlide(ppControl.CurrentSlide - 5);
+            try
+            {
+                ppControl.GotoSlide(ppControl.CurrentSlide - 5);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                /// do nothing
+            }
         }
     }
 }
