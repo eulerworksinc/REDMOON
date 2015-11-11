@@ -24,8 +24,8 @@ namespace Copernicus
     public partial class MainWindow : Window
     {
         private KinectSensorChooser sensorChooser;
-        private Copernicus_sm sm;
-        private Button_list button_list;
+        private KinectSlideShow slideShow;
+        private PowerPointControl ppControl;
        
         /// <summary>
         /// Constructor for MainWindow() 
@@ -35,23 +35,17 @@ namespace Copernicus
             InitializeComponent();
             Loaded += OnLoaded;
 
-            /// Create button list
-            button_list = new Button_list();
-            button_list.close_button = CloseButton;
-            button_list.next_slide_button = NextButton;
-            button_list.prev_slide_button = PrevButton;
-            button_list.left_button = LeftButton;
-            button_list.right_button = RightButton;
-
             /// Open xml data
-            var file_diag = new System.Windows.Forms.OpenFileDialog();
-            file_diag.Filter = "XML File|*.xml";
-            file_diag.FilterIndex = 1;
+            var fileDiag = new System.Windows.Forms.OpenFileDialog();
+            fileDiag.Filter = "XML File|*.xml";
+            fileDiag.FilterIndex = 1;
             
-            if (file_diag.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (fileDiag.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                sm = new Copernicus_sm(file_diag.FileName, button_list);
-
+                slideShow = new KinectSlideShow();
+                ppControl = new PowerPointControl();
+                slideShow.Open(fileDiag.FileName);
+                ppControl.Open(slideShow.PresentationFileName);
             }
             else
             {
@@ -158,7 +152,7 @@ namespace Copernicus
         /// <param name="args"></param>
         private void NextButtonOnClick(object sender, RoutedEventArgs args)
         {
-            sm.next_slide();
+            ppControl.NextSlide();
         }
 
         /// <summary>
@@ -168,7 +162,7 @@ namespace Copernicus
         /// <param name="args"></param>
         private void PreviousButtonOnClick(object sender, RoutedEventArgs args)
         {
-            sm.prev_slide();
+            ppControl.PreviousSlide();
         }
 
         /// <summary>
@@ -178,7 +172,7 @@ namespace Copernicus
         /// <param name="args"></param>
         private void CloseButtonOnClick(object sender, RoutedEventArgs args)
         {
-            sm.quit();
+            ppControl.Close();
             Close();
 
         }
@@ -190,7 +184,7 @@ namespace Copernicus
         /// <param name="args"></param>
         private void RightButtonOnClick(object sender, RoutedEventArgs args)
         {
-            sm.advance(5);
+            ppControl.GotoSlide(ppControl.CurrentSlide + 5);
         }
 
         /// <summary>
@@ -200,7 +194,7 @@ namespace Copernicus
         /// <param name="args"></param>
         private void LeftButtonOnClick(object sender, RoutedEventArgs args)
         {
-            sm.advance(-5);
+            ppControl.GotoSlide(ppControl.CurrentSlide - 5);
         }
     }
 }
