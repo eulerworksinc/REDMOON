@@ -16,7 +16,7 @@ using Microsoft.Office.Interop.PowerPoint;
 using Microsoft.Kinect.Toolkit;
 using Microsoft.Kinect;
 
-namespace Kinect_PP_WPF
+namespace Copernicus
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -51,7 +51,7 @@ namespace Kinect_PP_WPF
             if (file_diag.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 sm = new Copernicus_sm(file_diag.FileName, button_list);
-                sm.start_pp();
+
             }
             else
             {

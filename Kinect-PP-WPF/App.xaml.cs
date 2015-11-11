@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Kinect_PP_WPF
+namespace Copernicus
 {
     /// <summary>
     /// Interaction logic for App.xaml

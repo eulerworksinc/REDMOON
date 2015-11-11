@@ -1,7 +1,7 @@
-﻿<Application x:Class="Kinect_PP_WPF.App"
+﻿<Application x:Class="Copernicus.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Kinect_PP_WPF"
+             xmlns:local="clr-namespace:Copernicus"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          

@@ -10,21 +10,17 @@ using Microsoft.Kinect;
 using Microsoft.Kinect.Toolkit;
 
 
-namespace Kinect_PP_WPF
+namespace Copernicus
 {
     /// <summary>
     /// State machine class for Copernicus
     /// </summary>
     class Copernicus_sm
     {
-        private int current_slide;
-        private int num_slides;
-        private Application pp_app;
-        private Presentation pp_presentation;
-        private SlideShowView pp_slideshow;
         private List<Copernicus_slide> slide_list;
         private string pp_filename;
         private Button_list button_list;
+        private PowerPointControl ppControl;
 
         /// <summary>
         /// Constructor for Copernicus_sm
@@ -41,7 +37,6 @@ namespace Kinect_PP_WPF
                 pp_filename = Path.GetDirectoryName(xml_filename);
                 pp_filename += "\\" + root.GetAttribute("filename");
                 slide_list = new List<Copernicus_slide>();
-                num_slides = root.ChildNodes.Count;
                 this.button_list = button_list;
 
                 /// Create new copernicus slide for each slide in xml
@@ -81,21 +76,8 @@ namespace Kinect_PP_WPF
                 throw;
             }
 
-        }
-
-        /// <summary>
-        /// Start powerpoint slideshow
-        /// </summary>
-        public void start_pp()
-        {
-            pp_app = new Application();
-            pp_app.DisplayAlerts = PpAlertLevel.ppAlertsNone;
-            pp_presentation = pp_app.Presentations.Open(pp_filename);
-            pp_presentation.SlideShowSettings.ShowPresenterView = Microsoft.Office.Core.MsoTriState.msoFalse;
-            pp_presentation.SlideShowSettings.Run();
-            pp_slideshow = pp_presentation.SlideShowWindow.View;
-            current_slide = 1;
-            goto_slide(current_slide);
+            ppControl = new PowerPointControl();
+            ppControl.Open(pp_filename);
         }
 
         /// <summary>
@@ -103,7 +85,7 @@ namespace Kinect_PP_WPF
         /// </summary>
         public void quit()
         {
-            pp_app.Quit();
+            ppControl.Close();
         }
 
         /// <summary>
@@ -111,7 +93,7 @@ namespace Kinect_PP_WPF
         /// </summary>
         public void next_slide()
         {
-            goto_slide(current_slide + 1);
+            ppControl.NextSlide();
         }
 
         /// <summary>
@@ -119,38 +101,13 @@ namespace Kinect_PP_WPF
         /// </summary>
         public void prev_slide()
         {
-            goto_slide(current_slide - 1);
+            ppControl.PreviousSlide();
         }
 
         public void advance(int i)
         {
-            goto_slide(current_slide + i);
+            ppControl.GotoSlide(i);
         }
-
-        /// <summary>
-        /// Goto slide by index
-        /// </summary>
-        /// <param name="index"></param>
-        private void goto_slide(int index)
-        {
-            if (index > num_slides || index < 1)
-            {
-                return;
-                ///throw new ArgumentOutOfRangeException();
-            }
-            int list_index = index - 1;
-
-            button_list.close_button.IsEnabled = slide_list[list_index].close_button;
-            button_list.next_slide_button.IsEnabled = slide_list[list_index].next_slide_button;
-            button_list.prev_slide_button.IsEnabled = slide_list[list_index].prev_slide_button;
-            button_list.left_button.IsEnabled = slide_list[list_index].left_button;
-            button_list.right_button.IsEnabled = slide_list[list_index].right_button;           
-            pp_slideshow.GotoSlide(index);
-            current_slide = index;
-
-        }
-
-
     }
 
     /// <summary>

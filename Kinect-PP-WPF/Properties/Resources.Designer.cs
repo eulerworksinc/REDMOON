@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Kinect_PP_WPF.Properties
+namespace Copernicus.Properties
 {
 
 
