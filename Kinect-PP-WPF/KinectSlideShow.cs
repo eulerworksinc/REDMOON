@@ -14,7 +14,7 @@ namespace Copernicus
     /// </summary>
     class KinectSlideShow
     {
-        private List<KinectSlide> slides;
+        public List<KinectSlide> slides { get; private set; } = new List<KinectSlide>();
 
         /// <summary>
         /// True if a slide show has been opened
@@ -40,7 +40,6 @@ namespace Copernicus
                 XmlElement root = xmlDoc.DocumentElement;
                 PresentationFileName = Path.GetDirectoryName(fileName);
                 PresentationFileName += "\\" + root.GetAttribute("filename");
-                slides = new List<KinectSlide>();
 
                 foreach (XmlNode node in root.ChildNodes)
                 {
@@ -56,14 +55,19 @@ namespace Copernicus
 
             catch (Exception)
             {
-                PresentationFileName = null;
-                slides = null;
+                Close();
                 throw;
             }
 
             IsOpen = true;
         }
 
+        public void Close()
+        {
+            PresentationFileName = null;
+            slides = new List<KinectSlide>();
+            IsOpen = false;
+        }
     }
 
     /// <summary>

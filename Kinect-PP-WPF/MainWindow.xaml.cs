@@ -26,7 +26,7 @@ namespace Copernicus
         private KinectSensorChooser sensorChooser;
         private KinectSlideShow slideShow;
         private PowerPointControl ppControl;
-       
+
         /// <summary>
         /// Constructor for MainWindow() 
         /// </summary>
@@ -39,11 +39,12 @@ namespace Copernicus
             var fileDiag = new System.Windows.Forms.OpenFileDialog();
             fileDiag.Filter = "XML File|*.xml";
             fileDiag.FilterIndex = 1;
-            
+
             if (fileDiag.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 slideShow = new KinectSlideShow();
                 ppControl = new PowerPointControl();
+                ppControl.SlideChanged += OnSlideChanged;
                 slideShow.Open(fileDiag.FileName);
                 ppControl.Open(slideShow.PresentationFileName);
             }
@@ -56,7 +57,7 @@ namespace Copernicus
             WindowState = WindowState.Maximized;
             Topmost = true;
 
-            
+
         }
 
         /// <summary>
@@ -131,7 +132,7 @@ namespace Copernicus
                 kinectRegion.KinectSensor.SkeletonFrameReady += OnSkeletonFrameReady;
             }
 
-            
+
         }
 
         /// <summary>
@@ -141,7 +142,29 @@ namespace Copernicus
         /// <param name="args"></param>
         private void OnSkeletonFrameReady(object sender, SkeletonFrameReadyEventArgs args)
         {
-            
+
+        }
+
+        private void OnSlideChanged(object sender, SlideChangedEventArgs args)
+        {
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(controlGrid); ++i)
+            {
+                DependencyObject child = VisualTreeHelper.GetChild(controlGrid, i);
+                if (child != null && child is Microsoft.Kinect.Toolkit.Controls.KinectTileButton)
+                {
+                    Microsoft.Kinect.Toolkit.Controls.KinectTileButton control = (child as Microsoft.Kinect.Toolkit.Controls.KinectTileButton);
+
+                    if (slideShow.slides[args.SlideNumber - 1].Buttons.Contains(control.Name))                 
+                    {
+                        control.IsEnabled = true;
+                    }
+                    else
+                    {
+                        control.IsEnabled = false;
+                    }
+                }
+
+            }
         }
 
 

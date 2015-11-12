@@ -16,10 +16,10 @@
         <k:KinectUserViewer VerticalAlignment="Top" HorizontalAlignment="Center" 
 k:KinectRegion.KinectRegion="{Binding ElementName=kinectRegion}" Height="200" />
         <k:KinectRegion Name="kinectRegion" Height="Auto" Width="Auto" VerticalAlignment="Bottom">
-            <Grid>
-                <k:KinectTileButton Click="PreviousButtonOnClick" HorizontalAlignment="left" Width="120" Height="Auto" Opacity="0.0" Name="PrevButton"/>
-                <k:KinectTileButton Click="NextButtonOnClick" HorizontalAlignment="right" Width="120" Height="Auto" Opacity="0.0" Name="NextButton"/>
-                <k:KinectTileButton Click="CloseButtonOnClick" VerticalAlignment="Bottom" Height="120" HorizontalAlignment="Center" Opacity="0.0" Name="CloseButton"/>
+            <Grid Name="controlGrid">
+                <k:KinectTileButton Click="PreviousButtonOnClick" HorizontalAlignment="left" Width="120" Height="Auto" Opacity="0.1" Name="PreviousButton"/>
+                <k:KinectTileButton Click="NextButtonOnClick" HorizontalAlignment="right" Width="120" Height="Auto" Opacity="0.1" Name="NextButton"/>
+                <k:KinectTileButton Click="CloseButtonOnClick" VerticalAlignment="Bottom" Height="120" HorizontalAlignment="Center" Opacity="0.1" Name="CloseButton"/>
                 <k:KinectTileButton Click="LeftButtonOnClick" Height ="120" Margin="144,317,404,97.667" Opacity="0.1" Name="LeftButton"/>
                 <k:KinectTileButton Click="RightButtonOnClick" Height ="120" Margin="415,269,133,50" Opacity="0.1" Name="RightButton"/>
             </Grid>

@@ -180,6 +180,7 @@ namespace Copernicus
         public event EventHandler<SlideChangedEventArgs> SlideChanged;
     }
 
+
     /// <summary>
     /// Event arguments for SlideChanged event
     /// </summary>

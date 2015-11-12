@@ -1,99 +1,99 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Presentation filename="copernicus.pptx">
   <Slide id="1">
-    <Button id="next"/>
-    <Button id="close" />
+    <Button id="NextButton"/>
+    <Button id="CloseButton" />
   </Slide>
   <Slide id="2">
-    <Button id="close"/>
-    <Button id="right"/>
-    <Button id="previous"/>
-    <Button id="next"/>
+    <Button id="CloseButton"/>
+    <Button id="PreviousButton"/>
+    <Button id="NextButton"/>
+    <Button id="RightButton"/>
   </Slide>
   <Slide id="3">
-    <Button id="close"/>
-    <Button id="previous"/>
-    <Button id="next"/>
+    <Button id="CloseButton"/>
+    <Button id="PreviousButton"/>
+    <Button id="NextButton"/>
   </Slide>
   <Slide id="4">
-    <Button id="close"/>
-    <Button id="previous"/>
-    <Button id="next"/>
+    <Button id="CloseButton"/>
+    <Button id="PreviousButton"/>
+    <Button id="NextButton"/>
   </Slide>
   <Slide id="5">
-    <Button id="close"/>
-    <Button id="previous"/>
-    <Button id="next"/>
+    <Button id="CloseButton"/>
+    <Button id="PreviousButton"/>
+    <Button id="NextButton"/>
   </Slide>
   <Slide id="6">
-    <Button id="close"/>
-    <Button id="previous"/>
+    <Button id="CloseButton"/>
+    <Button id="PreviousButton"/>
   </Slide>
   <Slide id="7">
-    <Button id="close"/>
-    <Button id="right"/>
-    <Button id="left"/>
+    <Button id="CloseButton"/>
+    <Button id="RightButton"/>
+    <Button id="LeftButton"/>
   </Slide>
   <Slide id="8">
-    <Button id="close"/>
+    <Button id="CloseButton"/>
   </Slide>
   <Slide id="9">
-    <Button id="close"/>
+    <Button id="CloseButton"/>
   </Slide>
   <Slide id="10">
-    <Button id="close"/>
+    <Button id="CloseButton"/>
   </Slide>
   <Slide id="11">
-    <Button id="close"/>
+    <Button id="CloseButton"/>
   </Slide>
   <Slide id="12">
-    <Button id="close"/>
-    <Button id="right"/>
-    <Button id="left"/>
+    <Button id="CloseButton"/>
+    <Button id="RightButton"/>
+    <Button id="LeftButton"/>
   </Slide>
   <Slide id="13">
-    <Button id="close"/>
+    <Button id="CloseButton"/>
   </Slide>
   <Slide id="14">
-    <Button id="close"/>
+    <Button id="CloseButton"/>
   </Slide>
   <Slide id="15">
-    <Button id="close"/>
+    <Button id="CloseButton"/>
   </Slide>
   <Slide id="16">
-    <Button id="close"/>
+    <Button id="CloseButton"/>
   </Slide>
   <Slide id="17">
-    <Button id="close"/>
-    <Button id="right"/>
-    <Button id="left"/>
+    <Button id="CloseButton"/>
+    <Button id="RightButton"/>
+    <Button id="LeftButton"/>
   </Slide>
   <Slide id="18">
-    <Button id="close"/>
+    <Button id="CloseButton"/>
   </Slide>
   <Slide id="19">
-    <Button id="close"/>
+    <Button id="CloseButton"/>
   </Slide>
   <Slide id="20">
-    <Button id="close"/>
+    <Button id="CloseButton"/>
   </Slide>
   <Slide id="21">
-    <Button id="close"/>
+    <Button id="CloseButton"/>
   </Slide>
   <Slide id="22">
-    <Button id="close"/>
+    <Button id="CloseButton"/>
+    <Button id="LeftButton"/>
   </Slide>
   <Slide id="23">
-    <Button id="close"/>
+    <Button id="CloseButton"/>
   </Slide>
   <Slide id="24">
-    <Button id="close"/>
+    <Button id="CloseButton"/>
   </Slide>
   <Slide id="25">
-    <Button id="close"/>
+    <Button id="CloseButton"/>
   </Slide>
   <Slide id="26">
-    <Button id="close"/>
-    <Button id="left"/>
+    <Button id="CloseButton"/>
   </Slide>
 </Presentation>
